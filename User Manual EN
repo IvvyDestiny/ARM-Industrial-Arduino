@@ -1,0 +1,92 @@
+Robotic Arm User Manual
+Introduction
+This manual will guide you step-by-step on how to use your Arduino-controlled robotic arm. Please read all instructions before operating the device.
+
+Main Components
+Robotic Arm: Includes 5 servos (Base, Shoulder, Elbow, Wrist, Gripper).
+
+Right Joystick: Controls the Base and Shoulder.
+
+Left Joystick: Controls the Elbow and Wrist.
+
+Dead Man's Switch: Must be pressed at all times for the device to operate.
+
+Gripper-Close Button: Closes the gripper.
+
+Gripper-Open Button: Opens the gripper.
+
+Emergency Button: Stops all operations immediately.
+
+LEDs: Status indicators (Green, Yellow, Red).
+
+Buzzer: Emits alert sounds.
+
+Usage Instructions
+1. Initial Setup
+Positioning: Place the robotic arm on a flat and stable surface.
+
+Connections: Ensure all components are connected correctly.
+
+Servos should be connected to their respective pins.
+
+Joysticks should be connected to the analog pins.
+
+Buttons should be connected with pull-down resistors.
+
+LEDs and Buzzer should be connected as per the wiring diagram.
+
+2. Powering Up the System
+Power: Connect the Arduino to a power source (via USB or external battery).
+
+Green LED: The green LED should light up indicating the system is ready to operate.
+
+3. Operating the Robotic Arm
+Press the Dead Man's Switch: The system will only function while the switch is pressed.
+
+If the switch is released, all movements will be blocked for 30 seconds.
+
+Controlling the Base and Shoulder: Use the right joystick.
+
+X-axis movement controls the Base.
+
+Y-axis movement controls the Shoulder.
+
+Controlling the Elbow and Wrist: Use the left joystick.
+
+X-axis movement controls the Elbow.
+
+Y-axis movement controls the Wrist.
+
+Closing the Gripper: Press the Gripper-Close button.
+
+Lock Alert: If the gripper doesn't move for 300 ms, the buzzer will sound.
+
+Opening the Gripper: Press the Gripper-Open button.
+
+Lock Alert: If the gripper doesn't move for 300 ms, the buzzer will sound.
+
+4. Safety Mode
+Power Check: The system continuously checks voltage and current.
+
+Red LED: If voltage is below 5V, the red LED will light up.
+
+Safety Mode: If power is insufficient, the system operates one servo at a time.
+
+Yellow LED: Indicates the system is in safety mode.
+
+5. Emergency
+Press the Emergency Button: Immediately stops all operations.
+
+Release the button to reset the system after 30 seconds.
+
+Maintenance
+Regular Inspection: Periodically check connections and components.
+
+Calibration: Recalibrate the servos as needed.
+
+Precautions
+Supervision: Always operate the robotic arm under supervision.
+
+Power: Use a stable and appropriate power source.
+
+Safe Environment: Keep the device away from small children and pets.
