@@ -1,0 +1,76 @@
+Componentes necessários:
+Arduino UNO
+
+Servo Motors (Mesa, Ombro, Cotovelo, Garra-Pulso, Garra)
+
+Joysticks (2 unidades)
+
+Pushbuttons (Homem Morto, Garra-Close, Garra-Open, Emergência)
+
+LEDs (Verde, Amarelo, Vermelho)
+
+Buzzer
+
+Resistores (10kΩ para pull-down nos pushbuttons)
+
+Breadboard e fios jumpers
+
+Conexões:
+Servos:
+
+Mesa: Pino 9 do Arduino
+
+Ombro: Pino 10 do Arduino
+
+Cotovelo: Pino 11 do Arduino
+
+Garra-Pulso: Pino 12 do Arduino
+
+Garra: Pino 8 do Arduino
+
+Joysticks:
+
+Joystick Direito:
+
+Eixo X: Pino A0 do Arduino
+
+Eixo Y: Pino A1 do Arduino
+
+Botão: Conectar um lado do botão ao GND e o outro ao pino 5 do Arduino (com resistor pull-down de 10kΩ)
+
+Joystick Esquerdo:
+
+Eixo X: Pino A2 do Arduino
+
+Eixo Y: Pino A3 do Arduino
+
+Pushbuttons:
+
+Homem Morto: Pino 2 do Arduino (com resistor pull-down de 10kΩ)
+
+Garra-Close: Pino 3 do Arduino (com resistor pull-down de 10kΩ)
+
+Garra-Open: Pino 4 do Arduino (com resistor pull-down de 10kΩ)
+
+Emergência: Pino 5 do Arduino (com resistor pull-down de 10kΩ)
+
+LEDs:
+
+Verde: Pino 6 do Arduino (com resistor de 220Ω em série)
+
+Amarelo: Pino 7 do Arduino (com resistor de 220Ω em série)
+
+Vermelho: Pino 13 do Arduino (com resistor de 220Ω em série)
+
+Buzzer:
+
+Pino 14 do Arduino (se for o Arduino Uno, verifique se realmente pode usar um pino analógico como digital)
+
+Descrição do Circuito:
+Todos os servos precisam ser alimentados com +5V e GND, conectados ao pino 5V e GND do Arduino.
+
+Os joysticks possuem 5 pinos: GND, +5V, VRx, VRy e SW. Conecte GND e +5V às respectivas linhas de energia, e VRx, VRy aos pinos analógicos mencionados.
+
+Os pushbuttons devem ter um resistor pull-down (10kΩ) conectado entre o pino de entrada digital e o GND para evitar leituras flutuantes quando o botão não está pressionado.
+
+LEDs devem ser conectados com resistores de 220Ω em série para limitar a corrente
