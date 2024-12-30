@@ -7,15 +7,19 @@ const int servoCotoveloPin = 11;
 const int servoGarraPulsoPin = 12;
 const int servoGarraPin = 8;
 
-// Pinos para os joysticks e botões
+// Pinos para os joysticks e botões.
 const int joyPinX1 = A0;
 const int joyPinY1 = A1;
 const int joyPinX2 = A2;
 const int joyPinY2 = A3;
+
+//Variáveis dos botões de segurança.
 const int botaoHomemMortoPin = 2;
 const int botaoGarraClosePin = 3;
 const int botaoGarraOpenPin = 4;
 const int botaoEmergenciaPin = 5;
+
+//variáveis para iluminação e de comunicação .
 const int ledVerdePin = 6;
 const int ledAmareloPin = 7;
 const int ledVermelhoPin = 13;
@@ -61,6 +65,8 @@ void setup() {
   Serial.begin(9600);
 }
 
+//Leitura condicional do homem-morto
+
 void loop() {
   int estadoBotaoHomemMorto = digitalRead(botaoHomemMortoPin);
   if (estadoBotaoHomemMorto == HIGH) {
@@ -77,6 +83,8 @@ void loop() {
   verificarEnergia();
 }
 
+//leitura da posição dos joystick e controle da garra.
+
 void controlarServos() {
   int joyValX1 = analogRead(joyPinX1);
   int joyValY1 = analogRead(joyPinY1);
@@ -91,7 +99,7 @@ void controlarServos() {
     ultimaLeituraGarra = millis();
   }
 
-  // Controle dos demais servos
+  // Controle dos demais servos.
   servoMesa.write(map(joyValX1, 0, 1023, 0, 180));
   servoOmbro.write(map(joyValY1, 0, 1023, 0, 180));
   servoCotovelo.write(map(joyValX2, 0, 1023, 0, 180));
@@ -108,6 +116,8 @@ void travarGarra() {
   }
 }
 
+
+//verificação de segurança - impactos e excesso de força.
 void verificarGarra() {
   if (millis() - ultimaLeituraGarra > 300) {
     servoGarra.detach();
@@ -117,6 +127,7 @@ void verificarGarra() {
   }
 }
 
+//leitura condicional do status de emergência analógica.
 void verificarEmergencia() {
   if (digitalRead(botaoEmergenciaPin) == HIGH) {
     servoMesa.detach();
@@ -128,6 +139,8 @@ void verificarEmergencia() {
     garraTravada = false;
   }
 }
+
+//leitura das fontes de energia e consumo.
 
 void verificarEnergia() {
   int tensao = analogRead(A4); // Leitura do sensor de tensão
@@ -144,6 +157,8 @@ void verificarEnergia() {
   }
 }
 
+
+//modo de segurança condicional de manuseio da máquina em emergência.
 void operarModoSeguranca() {
   digitalWrite(ledAmareloPin, HIGH);
   for (int i = 0; i < 4; i++) {
